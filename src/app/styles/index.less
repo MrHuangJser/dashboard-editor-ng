@@ -1,0 +1,173 @@
+@import './theme.less';
+
+@toolbar-text-color: rgb(91, 107, 115);
+@disabled-color: rgb(200, 205, 208);
+@normal-color: rgb(125, 134, 148);
+@hovered-color: rgb(65, 80, 88);
+
+.main {
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  * {
+    user-select: none;
+  }
+  .svg-icon {
+    width: 1em;
+    * {
+      fill: currentColor;
+    }
+  }
+  .toolbar {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: rgba(39, 54, 78, 0.12) 1px 0px 6px 0px;
+    z-index: 4;
+    display: flex;
+    animation-duration: 0.3s;
+    animation-name: topIn;
+    .title {
+      width: 300px;
+      display: flex;
+      .action {
+        cursor: pointer;
+        padding: 15px;
+        display: flex;
+        font-size: 14px;
+        align-items: center;
+        color: rgb(141, 158, 167);
+        &:hover {
+          color: rgb(193, 193, 193);
+        }
+      }
+      .title-content {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: $toolbar-text-color;
+      }
+    }
+    .toolbar-center {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      padding: 5px 0;
+      > div {
+        display: flex;
+        align-items: center;
+      }
+      .svg-icon {
+        width: 1em;
+      }
+      .toolbar-item {
+        display: flex;
+        flex-direction: column;
+        margin: 0 4px;
+        cursor: pointer;
+        color: @normal-color;
+        &:hover {
+          &:not(.disabled) {
+            color: @hovered-color;
+          }
+        }
+        &.disabled {
+          cursor: not-allowed;
+          color: @disabled-color;
+        }
+        .icon {
+          width: 28px;
+          height: 28px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+        }
+      }
+      .zoom-button-group {
+        width: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        color: @normal-color;
+        cursor: pointer;
+        .svg-icon {
+          font-size: 12px;
+          &:hover {
+            color: @hovered-color;
+          }
+        }
+      }
+    }
+    .toolbar-right {
+      width: 350px;
+    }
+  }
+  .main-content {
+    display: flex;
+    flex: 1;
+    .item-panel {
+      background-color: #fff;
+      width: 300px;
+      box-shadow: rgba(213, 213, 213, 0.5) 0px 2px 30px 0px;
+      animation-duration: 0.3s;
+      animation-name: leftIn;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      .item-icon {
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+      }
+    }
+    .editor-content {
+      flex: 1;
+    }
+    .style-panel {
+      width: 350px;
+      background-color: #fff;
+      box-shadow: rgba(39, 54, 78, 0.11) 0px -2px 30px 0px;
+      animation-duration: 0.3s;
+      animation-name: rightIn;
+      z-index: 2;
+      overflow-y: auto;
+    }
+  }
+}
+
+@keyframes leftIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes topIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
