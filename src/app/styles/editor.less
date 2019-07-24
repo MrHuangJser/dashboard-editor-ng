@@ -1,0 +1,37 @@
+.editor-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  position: relative;
+  background-color: #f0f0f0;
+  &.in-drag {
+    cursor: grab;
+    &.on-drag {
+      cursor: grabbing;
+    }
+    .item-view {
+      pointer-events: none;
+    }
+  }
+  .no-zoom-area,
+  .zoom-area {
+    position: absolute;
+    transform-origin: 0 0;
+  }
+  .item-view,
+  .item-border {
+    position: absolute;
+    transform-origin: center;
+    cursor: default;
+    overflow: hidden;
+  }
+  .item-border {
+    pointer-events: none;
+    border: 1px solid #298df8;
+    box-sizing: border-box;
+  }
+  .no-zoom-area:first-child {
+    background-color: white;
+  }
+}
