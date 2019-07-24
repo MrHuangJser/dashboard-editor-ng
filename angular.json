@@ -7,7 +7,33 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less"
+          "prefix": "",
+          "style": "less",
+          "spec": false,
+          "skipImport": true
+        },
+        "@schematics/angular:directive": {
+          "prefix": "",
+          "spec": false,
+          "skipTests": true,
+          "skipImport": true
+        },
+        "@schematics/angular:modules": {
+          "skipTests": true,
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "spec": false,
+          "skipImport": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true,
+          "spec": false
+        },
+        "@schematics/angular:class": {
+          "skipTests": true,
+          "spec": false
         }
       },
       "root": "",
@@ -23,13 +49,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.less"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.less"],
             "scripts": []
           },
           "configurations": {
@@ -83,27 +104,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.less"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.less"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -119,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "editor-ng"
 }
