@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'item-panel',
-  templateUrl: './item-panel.component.html',
-  styleUrls: ['./item-panel.component.less']
+  selector: 'div.item-panel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <item-icon icon="text"></item-icon>
+    <item-icon icon="switch"></item-icon>
+  `
 })
-export class ItemPanelComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ItemPanelComponent {
+  constructor() {}
 }

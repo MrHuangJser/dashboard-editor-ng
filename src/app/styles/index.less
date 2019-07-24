@@ -1,3 +1,4 @@
+@import './bootstrap.css';
 @import './theme.less';
 
 @toolbar-text-color: rgb(91, 107, 115);
@@ -26,8 +27,6 @@
     box-shadow: rgba(39, 54, 78, 0.12) 1px 0px 6px 0px;
     z-index: 4;
     display: flex;
-    animation-duration: 0.3s;
-    animation-name: topIn;
     .title {
       width: 300px;
       display: flex;
@@ -48,7 +47,7 @@
         align-items: center;
         font-size: 14px;
         font-weight: bold;
-        color: $toolbar-text-color;
+        color: @toolbar-text-color;
       }
     }
     .toolbar-center {
@@ -114,8 +113,6 @@
       background-color: #fff;
       width: 300px;
       box-shadow: rgba(213, 213, 213, 0.5) 0px 2px 30px 0px;
-      animation-duration: 0.3s;
-      animation-name: leftIn;
       z-index: 2;
       display: flex;
       flex-wrap: wrap;
@@ -137,37 +134,8 @@
       width: 350px;
       background-color: #fff;
       box-shadow: rgba(39, 54, 78, 0.11) 0px -2px 30px 0px;
-      animation-duration: 0.3s;
-      animation-name: rightIn;
       z-index: 2;
       overflow-y: auto;
     }
-  }
-}
-
-@keyframes leftIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes rightIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes topIn {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
   }
 }
